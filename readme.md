@@ -47,29 +47,28 @@ Gadgets-Hub/
 ## 🖼️ Screenshots
 
 ### 🏠 Home Page
-![Home Page](screenshots/home.png)
+![Home Page](./screenshots/home.png)
 --
 (screenshots/home2.png)
 
 
 ### 🛍️ Products Page
-![Products Page](screenshots/products.png)
+![Products Page](./screenshots/products.png)
 
 ### 🛒 Cart Page
-![Cart Page](screenshots/cart.png)
+![Cart Page](./screenshots/cart.png)
 
 ### 💳 Checkout Page
-![Checkout Page](screenshots/checkout.png)
+![Checkout Page](./screenshots/checkout.png)
 
 ### 📦 Order History
-![Order History](screenshots/orders.png)
+![Order History](./screenshots/orders.png)
 
 ### 🧑‍💼 Login Page
-![User Login ](screenshots/login.png)
-
+![User Login ](./screenshots/login.png)
 
 ### 📱 Signup Page
-![User Signup](screenshots/signup.png)
+![User Signup](./screenshots/signup.png)
 ---
 
 ---
