@@ -47,7 +47,7 @@ Gadgets-Hub/
 ## 🖼️ Screenshots
 
 ### 🏠 Home Page
-![Home Page](./screenshots/home.png)
+![Home Page](.screenshots/home.png)
 --
 (screenshots/home2.png)
 
