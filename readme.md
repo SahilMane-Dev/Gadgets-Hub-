@@ -44,35 +44,6 @@ Gadgets-Hub/
 └── requirements.txt
 
 
-## 🖼️ Screenshots
-
-### 🏠 Home Page
-![Home Page](.screenshots/home.png)
---
-(screenshots/home2.png)
-
-
-### 🛍️ Products Page
-![Products Page](./screenshots/products.png)
-
-### 🛒 Cart Page
-![Cart Page](./screenshots/cart.png)
-
-### 💳 Checkout Page
-![Checkout Page](./screenshots/checkout.png)
-
-### 📦 Order History
-![Order History](./screenshots/orders.png)
-
-### 🧑‍💼 Login Page
-![User Login ](./screenshots/login.png)
-
-### 📱 Signup Page
-![User Signup](./screenshots/signup.png)
----
-
----
-
 ## 📌 Future Improvements
 
 - 💳 Online payment integration (Razorpay / Stripe)
@@ -80,9 +51,6 @@ Gadgets-Hub/
 - ❤️ Wishlist feature
 - 📧 Email notifications (Order confirmation & status updates)
 - 🗄️ Production database migration (PostgreSQL)
-
----
-
 
 ---
 
