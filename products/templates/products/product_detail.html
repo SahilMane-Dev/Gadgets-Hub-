@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} {{ product.name }} | Gadgets Hub {% endblock %}
+
+{% block content %}
+<div class="product-detail-container">
+    <div class="product-detail-image">
+        {% if product.image %}
+            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+        {% else %}
+            <img src="{% static 'no-image.png' %}" alt="No image available">
+        {% endif %}
+    </div>
+
+    <div class="product-detail-info">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'products' %}">Products</a></li>
+                <li class="breadcrumb-item active text-white" aria-current="page">{{ product.name }}</li>
+            </ol>
+        </nav>
+
+        <h1 class="product-detail-title">{{ product.name }}</h1>
+        <h2 class="product-detail-price">₹{{ product.price }}</h2>
+        
+        <div class="product-description">
+            <h5 class="text-blue">Description</h5>
+            <p>{{ product.description }}</p>
+        </div>
+
+        <div class="product-actions">
+            <a href="{% url 'add_to_cart' product.id %}" class="btn-buy-now">
+                <i class="bi bi-cart-plus"></i> Add to Cart
+            </a>
+            <a href="{% url 'products' %}" class="btn-back">
+                <i class="bi bi-arrow-left"></i> Back to Shop
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

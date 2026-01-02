@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Checkout | Gadgets Hub {% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <h2 class="text-center mb-5 neon-text-blue">Checkout</h2>
+
+    <div class="row g-5">
+        <div class="col-lg-5 order-lg-2">
+            <div class="summary-card">
+                <h4 class="mb-4 neon-text-violet">Order Summary</h4>
+                <div class="checkout-items-list mb-4">
+                    {% for item in items %}
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <div>
+                            <h6 class="mb-0 text-white">{{ item.product.name }}</h6>
+                            <small class="text-dim">Quantity: {{ item.quantity }}</small>
+                        </div>
+                        <span class="text-white fw-bold">₹{{ item.subtotal }}</span>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <hr class="border-secondary opacity-25">
+
+                <div class="d-flex justify-content-between align-items-center mt-3">
+                    <span class="h5 mb-0 text-white">Total Amount</span>
+                    <span class="h4 mb-0 fw-bold neon-text-blue">₹{{ total }}</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-7 order-lg-1">
+            <div class="checkout-form-container">
+                <h4 class="mb-4 text-white">Billing Details</h4>
+                <form method="POST">
+                    {% csrf_token %}
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label text-dim">First Name</label>
+                            <input type="text" name="first_name" placeholder="Sahil" required minlength="2"
+                                class="form-control tech-input">
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label text-dim">Last Name</label>
+                            <input type="text" name="last_name" placeholder="Mane" required minlength="2"
+                                class="form-control tech-input">
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label text-dim">Email Address</label>
+                        <input type="email" name="email" placeholder="sahil@example.com" required
+                            class="form-control tech-input">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label text-dim">Phone Number</label>
+                        <input type="tel" name="phone" required  placeholder="9876543210"
+                            class="form-control tech-input">
+                        <small class="text-dim">Enter valid 10‑digit mobile number</small>
+
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label text-dim">Shipping Address</label>
+                        <textarea name="address" rows="3" placeholder="Street address, Apartment, Suite..." required
+                            class="form-control tech-input"></textarea>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label text-dim">City</label>
+                            <input type="text" name="city" required class="form-control tech-input">
+                        </div>
+
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label text-dim">State</label>
+                            <input type="text" name="state" required class="form-control tech-input">
+                        </div>
+
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label text-dim">Country</label>
+                            <input type="text" name="country" class="form-control tech-input">
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label text-dim">Payment Method</label>
+                        <select class="form-control tech-input" disabled>
+                            <option>Cash on Delivery (COD)</option>
+                        </select>
+                        <small class="text-info mt-2 d-block"><i class="bi bi-info-circle"></i> Online payments are
+                            coming soon.</small>
+                    </div>
+
+                    <button class="btn-checkout w-100 py-3" type="submit">
+                        Place Order <i class="bi bi-shield-check ms-2"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

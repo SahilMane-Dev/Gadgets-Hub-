@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Order Successful | Gadgets Hub {% endblock %}
+
+{% block content %}
+<div class="container py-5 mt-4">
+    <div class="order-success-wrapper mx-auto" style="max-width: 750px;">
+        
+        <div class="text-center mb-5 animate-fade-in">
+            <div class="checkmark-wrapper mb-4">
+                <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                    <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+                    <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                </svg>
+            </div>
+            <h1 class="neon-text-blue">Order Placed Successfully!</h1>
+            <p class="text-dim">Thank you for shopping with Gadgets Hub. Your order is being processed.</p>
+        </div>
+
+        <div class="glass-receipt p-4 p-md-5 rounded-5 shadow-lg mb-4">
+            <div class="row g-4">
+                <div class="col-md-6 border-end-md">
+                    <h5 class="text-uppercase small fw-bold mb-4 neon-text-violet" style="letter-spacing: 2px;">Shipping Details</h5>
+                    
+                    <div class="detail-item mb-3">
+                        <label class="d-block text-dim small">Customer</label>
+                        <span class="text-light fs-5 fw-medium">{{ order.customer_name }}</span>
+                    </div>
+                    
+                    <div class="detail-item mb-3">
+                        <label class="d-block text-dim small">Contact Information</label>
+                        <span class="text-light">Email: {{ order.email }}</span><br>
+                        <span class="text-light">Phone: {{ order.phone }}</span>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <label class="d-block text-dim small">Shipping Address</label>
+                        <span class="text-light">{{ order.address }}</span>
+                    </div>
+                </div>
+
+                <div class="col-md-6 ps-md-4">
+                    <h5 class="text-uppercase small fw-bold mb-4 neon-text-violet" style="letter-spacing: 2px;">Order Summary</h5>
+                    <div class="order-items-scroll pe-2">
+                        {% for item in order.items.all %}
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <div>
+                                <h6 class="mb-0 text-light fw-normal">{{ item.product.name }}</h6>
+                                <small class="text-dim">Quantity: {{ item.quantity }}</small>
+                            </div>
+                            <span class="font-monospace text-light">₹{{ item.price|floatformat:2 }}</span>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    
+                    <div class="mt-4 pt-3 border-top border-secondary border-opacity-25">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="h5 mb-0 text-light">Total Paid</span>
+                            <span class="h3 mb-0 fw-bold neon-text-blue">
+                                ₹{{ order.total_amount }}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-center gap-4 mt-5">
+            <a href="{% url 'products' %}" class="btn-checkout px-5">
+                Continue Shopping
+            </a>
+        
+            <a href="{% url 'my_orders' %}" class="btn-checkout px-5">
+                Your Orders
+            </a>
+        </div>
+        
+    </div>
+</div>
+{% endblock %}

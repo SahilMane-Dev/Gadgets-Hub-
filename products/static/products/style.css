@@ -1,0 +1,47 @@
+/* You would add this specific class to your main CSS file (e.g., static/css/style.css) */
+
+.product-grid-4-col {
+    /* Use CSS Grid for the 4-column layout */
+    display: grid;
+    /* Define 4 columns, each taking an equal fraction of the space */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 25px; /* Spacing between cards */
+    max-width: 1200px; /* Optional: Sets a maximum width for the whole grid */
+    margin: 0 auto; /* Centers the grid on the page */
+}
+
+/* Base card styling (similar to previous response, but width is now managed by the grid) */
+.product-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    /* width property is no longer needed here, as the grid defines the size */
+    transition: box-shadow 0.3s;
+}
+
+/* Ensure images and descriptions display nicely */
+.product-image-container {
+    height: 180px; /* Reduced height for better fit in 4-column view */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f8f8;
+}
+
+.product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 10px;
+}
+
+.product-description {
+    font-size: 0.85em;
+    color: #666;
+    margin-bottom: 10px;
+    min-height: 40px; /* Keep height consistent */
+}
+
+/* Add other styles for .product-details, .product-name, .product-price, .btn-view-details here */

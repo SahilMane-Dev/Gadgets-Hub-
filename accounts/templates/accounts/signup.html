@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block title %} Create Account | Gadgets Hub {% endblock %}
+
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 90vh;">
+    <div class="login-card p-4 p-md-5">
+        <h3 class="mb-4 text-center neon-text-blue fw-bold">Create Account</h3>
+
+        {% if messages %}
+        <div class="messages-container mb-4">
+            {% for message in messages %}
+                <div class="alert alert-{% if message.tags == 'error' %}danger{% else %}{{ message.tags }}{% endif %} alert-dismissible fade show animate-fade-in" role="alert">
+                    <i class="bi {% if message.tags == 'error' %}bi-exclamation-triangle-fill{% else %}bi-check-circle-fill{% endif %} me-2"></i>
+                    {{ message }}
+                   
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <div class="mb-3">
+                <label class="form-label text-dim small text-uppercase">Username</label>
+                <input type="text" name="username" class="form-control tech-input" 
+                       placeholder="e.g. tech_enthusiast" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label text-dim small text-uppercase">Email Address</label>
+                <input type="email" name="email" class="form-control tech-input" 
+                       placeholder="name@example.com" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label text-dim small text-uppercase">Password</label>
+                <input type="password" name="password" class="form-control tech-input" 
+                       placeholder="Min. 8 characters" required>
+            </div>
+
+            <div class="mb-4">
+                <label class="form-label text-dim small text-uppercase">Confirm Password</label>
+                <input type="password" name="confirm_password" class="form-control tech-input" 
+                       placeholder="Repeat password" required>
+            </div>
+
+            <button type="submit" class="btn-checkout w-100 py-3 mb-3">
+                Initialize Account
+            </button>
+
+            <div class="text-center mt-3">
+                <p class="text-dim small">Already have an account? 
+                    <a href="{% url 'login' %}" class="text-blue text-decoration-none fw-bold">Login</a>
+                </p>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

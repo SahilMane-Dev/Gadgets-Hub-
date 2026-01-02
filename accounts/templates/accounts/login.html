@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %} Login | Gadgets Hub {% endblock %}
+
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+    <div class="login-card p-4 p-md-5">
+        <h3 class="mb-4 text-center neon-text-blue fw-bold">Login</h3>
+
+        {% if messages %}
+        <div class="messages-container mb-4">
+            {% for message in messages %}
+                <div class="alert alert-{% if message.tags == 'error' %}danger{% else %}{{ message.tags }}{% endif %} alert-dismissible fade show animate-fade-in" role="alert">
+                    <i class="bi {% if message.tags == 'error' %}bi-exclamation-triangle-fill{% else %}bi-check-circle-fill{% endif %} me-2"></i>
+                    {{ message }}
+                   
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <div class="mb-3">
+                <label class="form-label text-dim small text-uppercase">Enter Username:</label>
+                <input type="text" name="username" class="form-control tech-input" 
+                       placeholder="Username or Email" required>
+            </div>
+
+            <div class="mb-4">
+                <label class="form-label text-dim small text-uppercase">Enter Password:</label>
+                <input type="password" name="password" class="form-control tech-input" 
+                       placeholder="Password" required>
+            </div>
+
+            <button type="submit" class="btn-checkout w-100 py-3 mb-3">
+                Login
+            </button>
+
+            <div class="text-center mt-3">
+                <p class="text-dim small">Don't have an account? 
+                    <a href="{% url 'signup' %}" class="text-blue text-decoration-none fw-bold">Sign Up</a>
+                </p>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,11 @@
+<h2>My Orders</h2>
+{% for order in orders %}
+    <div>
+        <p>Order #: {{ order.id }}</p>
+        <p>Total: ₹{{ order.total }}</p>
+        <p>Date: {{ order.created_at }}</p>
+        <a href="{% url 'order_detail' order.id %}">View Details</a>
+    </div>
+{% empty %}
+    <p>No orders found.</p>
+{% endfor %}
