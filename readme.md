@@ -30,7 +30,7 @@ It supports user authentication, session‑based cart, order management, and a m
 
 ## 📂 Project Structure
 
-```text
+
 Gadgets-Hub/
 │
 ├── accounts/        # Signup, Login, Logout
