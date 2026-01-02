@@ -28,18 +28,7 @@ It supports user authentication, session‑based cart, order management, and a m
 
 ---
 
-## 📂 Project Structure
 
-Gadgets-Hub/
-│
-├── accounts/ # Login, Signup, Logout
-├── products/ # Product listing & details
-├── cart/ # Cart & session handling
-├── orders/ # Orders & order history
-├── templates/ # HTML templates
-├── static/ # CSS, JS, images
-├── db.sqlite3 # SQLite database (dev)
-├── manage.py
-└── requirements.txt
+
 
 
